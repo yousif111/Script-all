@@ -1,0 +1,21 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("NoMoreLife", "DarkTheme")
+local MenuTap = Window:NewTab("Menu")
+
+local Section = MenuTap:NewSection("Menu")
+
+Section:NewButton("Esp", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/esp/main/esp", true))()
+end)
+Section:NewButton("Jumb", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/INF-JUMP/main/INF%20JUMP", true))()
+end)
+Section:NewButton("Sailant aim", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/sailant-aim/main/sailant", true))()
+end)
+Section:NewButton("Speed", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/speed-script/main/speed%20script", true))()
+end)
+Section:NewButton("Aimbot", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Spoorloos/scripts/main/curve_aimbot.lua"))();
+end)
