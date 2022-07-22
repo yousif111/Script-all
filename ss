@@ -1,21 +1,42 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("NoMoreLife", "DarkTheme")
-local MenuTap = Window:NewTab("Menu")
+local Window = Library.CreateLib("No More Life", "DarkTheme")
+local MainTab = Window:NewTab("Menu")
 
-local Section = MenuTap:NewSection("Menu")
+local Section = MainTab:NewSection("Menu")
 
-Section:NewButton("Esp", "ButtonInfo", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/esp/main/esp", true))()
+Section:NewButton("Aimbot And Esp", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/Update/main/new", true))()
 end)
+
 Section:NewButton("Jumb", "ButtonInfo", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/INF-JUMP/main/INF%20JUMP", true))()
 end)
-Section:NewButton("Sailant aim", "ButtonInfo", function()
+
+Section:NewButton("Silent aim", "ButtonInfo", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/sailant-aim/main/sailant", true))()
 end)
-Section:NewButton("Speed", "ButtonInfo", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yousif111/speed-script/main/speed%20script", true))()
+
+WalkSpeedValue = 100
+Section:NewToggle("Toggle Speed", "", function(state)
+if state then
+    getgenv().Speed = true
+    if getgenv().Speed == true then
+    WalkSpeedValue = v
+    local Player = game:service'Players'.LocalPlayer
+    Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+    Player.Character.Humanoid.WalkSpeed = WalkSpeedValue
+    end)
+    Player.Character.Humanoid.WalkSpeed = WalkSpeedValue
+end
+    else
+        getgenv().Speed = false
+    end
 end)
-Section:NewButton("Aimbot", "ButtonInfo", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Spoorloos/scripts/main/curve_aimbot.lua"))();
+
+Section:NewSlider("Walk Speed", "Set Your Walk Speed", 500, 16, function(v)
+    WalkSpeedValue = v
+end)
+
+Section:NewKeybind("UI Keybind", "", Enum.KeyCode.Insert, function()
+    Library:ToggleUI()
 end)
